@@ -1,7 +1,9 @@
-import { station, line } from './data.js'
+import { station, line } from './data.js';
+import { controller } from './controller.js';
 
 function App() {
-  console.log(station, line)
+  controller();
+  console.log(station, line);
 }
 
 App();
