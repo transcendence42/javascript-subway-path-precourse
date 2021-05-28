@@ -25,6 +25,12 @@ const renderRadioValue = (radioValue) => {
 };
 
 const render = (result, radioValue) => {
+  if (result === false) {
+    alert(
+      '경로 조회 시 출발역과 도착역이 연결되지 않으면 경로를 조회할 수 없다.',
+    );
+    return;
+  }
   renderRadioValue(radioValue);
   renderCost(result.pathCost, result.timeCost);
   renderRoute(result.shortPath);
