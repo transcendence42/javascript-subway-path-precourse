@@ -51,7 +51,7 @@ const calculateCost = ({ departureInput, arrivalInput, cost }) => {
     timeCost += cost[1];
     path.shift();
   }
-  return [pathCost, timeCost, shortPath];
+  return {pathCost, timeCost, shortPath};
 };
 
 export const pathFindFunction = ({

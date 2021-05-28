@@ -1,5 +1,21 @@
-import {pathFindFunction} from './path-find.js';
+import { pathFindFunction } from './path-find.js';
 import { checkValidInput } from './check.js';
+
+const renderCost = (pathCost, timeCost) => {
+  console.log(pathCost, timeCost);
+  document
+    .getElementsByTagName('tbody')[0]
+    .insertAdjacentHTML('afterbegin', `<tr><td>${pathCost}km</td><td>${timeCost}분</td></tr>`);
+};
+
+const renderRoute = (shortPath) => {
+  console.log(shortPath);
+};
+
+const render = (result) => {
+  renderCost(result.pathCost, result.timeCost);
+  renderRoute(result.shortPath);
+};
 
 const submitEvent = () => {
   const departureInput = document.getElementById(
@@ -14,7 +30,7 @@ const submitEvent = () => {
   if (!checkValidInput({ departureInput, arrivalInput })) {
     return;
   }
-  pathFindFunction({ departureInput, arrivalInput, radioValue });
+  render(pathFindFunction({ departureInput, arrivalInput, radioValue }));
 };
 
 export const controller = () => {
