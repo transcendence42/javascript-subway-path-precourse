@@ -1,4 +1,5 @@
-import {checkValidInput} from './check.js';
+import {pathFindFunction} from './path-find.js';
+import { checkValidInput } from './check.js';
 
 const submitEvent = () => {
   const departureInput = document.getElementById(
@@ -10,10 +11,10 @@ const submitEvent = () => {
   const radioValue = [...document.getElementsByName('search-type')].find(
     (x) => x.checked,
   ).value;
-  if (!checkValidInput(departureInput, arrivalInput)) {
-    return ;
+  if (!checkValidInput({ departureInput, arrivalInput })) {
+    return;
   }
-  console.log(departureInput, arrivalInput, radioValue);
+  pathFindFunction({ departureInput, arrivalInput, radioValue });
 };
 
 export const controller = () => {

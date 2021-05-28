@@ -1,25 +1,11 @@
 export const station = [
-  {
-    name: '교대',
-  },
-  {
-    name: '강남',
-  },
-  {
-    name: '역삼',
-  },
-  {
-    name: '남부터미널',
-  },
-  {
-    name: '양재',
-  },
-  {
-    name: '양재시민의숲',
-  },
-  {
-    name: '매봉',
-  },
+  '교대',
+  '강남',
+  '역삼',
+  '남부터미널',
+  '양재',
+  '양재시민의숲',
+  '매봉',
 ];
 
 export const line = [
@@ -63,7 +49,7 @@ export const line = [
         'path-cost': 1,
         'time-cost': 1,
       },
-    ]
+    ],
   },
   {
     name: '신분당선',
@@ -81,6 +67,6 @@ export const line = [
         'path-cost': 10,
         'time-cost': 3,
       },
-    ]
+    ],
   },
 ];
