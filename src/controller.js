@@ -2,14 +2,15 @@ import { pathFindFunction } from './path-find.js';
 import { checkValidInput } from './check.js';
 
 const renderCost = (pathCost, timeCost) => {
-  console.log(pathCost, timeCost);
   document
     .getElementsByTagName('tbody')[0]
     .insertAdjacentHTML('afterbegin', `<tr><td>${pathCost}km</td><td>${timeCost}분</td></tr>`);
 };
 
 const renderRoute = (shortPath) => {
-  console.log(shortPath);
+  document
+    .getElementsByTagName('tbody')[0]
+    .insertAdjacentHTML('beforeend', `<tr><td colspan='2'>${shortPath.join('➜')}</td></tr>`);
 };
 
 const render = (result) => {
