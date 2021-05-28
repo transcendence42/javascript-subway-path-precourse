@@ -3,7 +3,6 @@ import { controller } from './controller.js';
 
 function App() {
   controller();
-  console.log(station, line);
 }
 
 App();
