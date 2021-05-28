@@ -1,6 +1,6 @@
 import Dijkstra from './utils/Dijkstra.js';
 
-import { station, line } from './data.js';
+import { line } from './data.js';
 
 const initDijkstra = ({ departureInput, arrivalInput, cost }) => {
   const dijkstra = new Dijkstra();

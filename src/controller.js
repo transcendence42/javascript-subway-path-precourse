@@ -1,5 +1,6 @@
 import { pathFindFunction } from './path-find.js';
 import { checkValidInput } from './check.js';
+import { initInput } from './init.js';
 
 const renderCost = (pathCost, timeCost) => {
   document
@@ -27,8 +28,9 @@ const renderRadioValue = (radioValue) => {
 const render = (result, radioValue) => {
   if (result === false) {
     alert(
-      '경로 조회 시 출발역과 도착역이 연결되지 않으면 경로를 조회할 수 없다.',
+      '경로 조회 시 출발역과 도착역이 연결되지 않으면 경로를 조회할 수 없습니다.',
     );
+    initInput();
     return;
   }
   renderRadioValue(radioValue);
@@ -47,6 +49,7 @@ const submitEvent = () => {
     (x) => x.checked,
   ).value;
   if (!checkValidInput({ departureInput, arrivalInput })) {
+    initInput();
     return;
   }
   render(

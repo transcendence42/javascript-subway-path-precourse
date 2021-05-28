@@ -1,11 +1,4 @@
-import { station, line } from './data.js';
-
-// const checkValidLine = ({ departureInput, arrivalInput }) => {
-//   return line.filter(
-//     (x) =>
-//       x.station.includes(departureInput) && x.station.includes(arrivalInput),
-//   ).length;
-// };
+import { station } from './data.js';
 
 const checkValidStation = (value) => {
   if (value.length < 2) {
@@ -30,11 +23,5 @@ export const checkValidInput = ({ departureInput, arrivalInput }) => {
   if (!checkValidStation(arrivalInput)) {
     return false;
   }
-  // if (!checkValidLine({ departureInput, arrivalInput })) {
-  //   alert(
-  //     '경로 조회 시 출발역과 도착역이 연결되지 않으면 경로를 조회할 수 없습니다.',
-  //   );
-  //   return false;
-  // }
   return true;
 };
