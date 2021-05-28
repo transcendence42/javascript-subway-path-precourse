@@ -16,22 +16,42 @@ const initDijkstra = ({ departureInput, arrivalInput, cost }) => {
   return dijkstra.findShortestPath(departureInput, arrivalInput);
 };
 
-const calculatePathCost = ({ departureInput, arrivalInput }) => {
-  const line = initDijkstra({
+const getStationRoute = () => {
+  return line.reduce((acc, cur, i) => {
+    if (i === 1) {
+      return [...acc.cost, ...cur.cost];
+    }
+    return [...acc, ...cur.cost];
+  });
+};
+
+const findCost = ({ path }) => {
+  for (let item of getStationRoute()) {
+    if (
+      item['ascending-pathway'] === path[0] &&
+      item['descending-pathway'] === path[1]
+    ) {
+      return [item['path-cost'], item['time-cost']];
+    }
+  }
+};
+
+const calculateCost = ({ departureInput, arrivalInput, cost }) => {
+  const shortPath = initDijkstra({
     departureInput,
     arrivalInput,
     cost: 'path-cost',
   });
-  console.log(line);
-};
-
-const calculateTimeCost = ({ departureInput, arrivalInput }) => {
-  const line = initDijkstra({
-    departureInput,
-    arrivalInput,
-    cost: 'time-cost',
-  });
-  console.log(line);
+  let path = shortPath.slice();
+  let pathCost = 0;
+  let timeCost = 0;
+  while (path.length >= 2) {
+    let cost = findCost({ path });
+    pathCost += cost[0];
+    timeCost += cost[1];
+    path.shift();
+  }
+  return [pathCost, timeCost, shortPath];
 };
 
 export const pathFindFunction = ({
@@ -39,9 +59,5 @@ export const pathFindFunction = ({
   arrivalInput,
   radioValue,
 }) => {
-  if (radioValue === '최단시간') {
-    calculatePathCost({ departureInput, arrivalInput });
-  } else if (radioValue === '최단거리') {
-    calculateTimeCost({ departureInput, arrivalInput });
-  }
+  return calculateCost({ departureInput, arrivalInput, radioValue });
 };
