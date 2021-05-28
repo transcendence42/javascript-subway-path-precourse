@@ -1,9 +1,7 @@
-import { users, courses } from './data.js'
+import { station, line } from './data.js'
 
 function App() {
-  this.users = users
-  this.courses = courses
-  console.log(users, courses)
+  console.log(station, line)
 }
 
 App();
